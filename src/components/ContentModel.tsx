@@ -1,19 +1,13 @@
 import type React from "react"
 import { CloseIcon } from "../icons/closeIcon"
 import { Button } from "./Button"
+import { InputData } from "../utility/inputdata"
 
 interface OpenProps{
     open: boolean
     setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-interface InputProps{
-    placeholder: string
-}
-
-const InputData = (prop: InputProps) => {
-    return <input type="text" placeholder={`${prop.placeholder}`} className="bg-white shadow p-2 rounded-sm mt-5"/>
-}
 
 export const ContentModel = (prop: OpenProps) => {
     return <div>

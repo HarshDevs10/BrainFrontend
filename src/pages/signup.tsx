@@ -1,14 +1,7 @@
 import { NavLink, useNavigate } from "react-router"
 import { Button } from "../components/Button"
 import { BrainIcon } from "../icons/brainIcon"
-
-interface InputProps{
-    placeholder: string
-}
-
-const InputData = (prop: InputProps) => {
-    return <input type="text" placeholder={`${prop.placeholder}`} className="bg-white shadow p-2 rounded-sm mt-5"/>
-}
+import { InputData } from "../utility/inputdata"
 
 export const Signup = () => {
     const Navigate = useNavigate()
