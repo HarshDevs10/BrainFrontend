@@ -1,7 +1,7 @@
 import axios from "axios"
 import type React from "react"
 import { BACKEND_URL } from "../config"
-import { useNavigate, type NavigateFunction } from "react-router"
+import { type NavigateFunction } from "react-router"
 
 interface SignClickHandlerProps{
     userRef: React.RefObject<any>
