@@ -2,9 +2,29 @@ import { NavLink, useNavigate } from "react-router"
 import { Button } from "../components/Button"
 import { BrainIcon } from "../icons/brainIcon"
 import { InputData } from "../utility/inputdata"
+import { useRef, useState } from "react"
+import axios from "axios"
+import { BACKEND_URL } from "../config"
+
 
 export const Signin = () => {
     const Navigate = useNavigate()
+    const UsernameRef = useRef<any>(0)
+    const PasswordRef = useRef<any>(0)
+    const [errorMes, setErrorMes] = useState(null)
+
+    const SigninClickHandler = () => {
+        const userName = UsernameRef.current?.value
+        const password = PasswordRef.current?.value
+        console.log(userName)
+        console.log(password)
+        axios.post( `${BACKEND_URL}/api/v1/Signin`, {
+            userName,
+            password
+        }).then(() => {Navigate("/DashBoard")})
+        .catch((e) => {setErrorMes(e.response.data.err? e.response.data.err : e.response.data.message)})
+    }
+
 
     return <div className="w-screen h-screen bg-[#F4F4F4] flex justify-center items-center">
         <div className="bg-white rounded-md shadow w-72">
@@ -18,13 +38,16 @@ export const Signin = () => {
                 Sign In
             </div>
             <div className="text-center pt-6">
-                <InputData placeholder="UserName"/>
+                <InputData placeholder="UserName" ref={UsernameRef}/>
             </div>
             <div className="text-center pt-1">
-                <InputData placeholder="Password"/>
+                <InputData placeholder="Password" ref={PasswordRef}/>
+            </div>
+            <div className="text-red-800 text-xs pl-10">
+                {errorMes? `* ${errorMes}`: null}
             </div>
             <div className="flex justify-center items-center pt-8">
-                <Button variant="Primary" size="md" text="Sign In" fullWidth="no" onClick={() => {Navigate("/DashBoard")}}/>
+                <Button variant="Primary" size="md" text="Sign In" fullWidth="no" onClick={() => {SigninClickHandler()}}/>
             </div>
             <div className="text-center pt-8 pb-3">
                 Dont have an account? <NavLink to="/Signup" className="pl-1 underline text-blue-900 font-semibold">[Sign Up]</NavLink>
