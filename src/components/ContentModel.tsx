@@ -2,6 +2,7 @@ import type React from "react"
 import { CloseIcon } from "../icons/closeIcon"
 import { Button } from "./Button"
 import { InputData } from "../utility/inputdata"
+import { useState } from "react"
 
 interface OpenProps{
     open: boolean
@@ -10,19 +11,64 @@ interface OpenProps{
 
 
 export const ContentModel = (prop: OpenProps) => {
+    const [type, setType] = useState<string>("none")
+
+    const YoutubeClickHandler = () => {
+        if (type === "none"){
+            setType("youtube")
+        }
+        else{
+            setType("none")
+        }
+    }
+
+    const TweetClickHandler = () => {
+        if(type === "none"){
+            setType("tweet")
+        }
+        else{
+            setType("none")
+        }
+    }
+
     return <div>
         {prop.open ? <div className="w-screen h-screen fixed bg-slate-500/70 top-0 left-0 z-10 flex justify-center items-center">
             <div className="bg-white text-blacks p-5 rounded-lg">
-                <div className="flex justify-end pb-2">
-                    <div onClick={() => {prop.setOpen(false)}} className="cursor-pointer">
+                <div className="flex justify-between items-center pb-2">
+                    <span className="text-slate-700 text-xl font-semibold">Adding Content</span>
+                    <span onClick={() => {prop.setOpen(false)}} className="cursor-pointer">
                         <CloseIcon size="lg"/>
-                    </div>
+                    </span>
                 </div>
                 <div className="flex flex-col">
                     <InputData placeholder="type"/>
                     <InputData placeholder="name"/>
                 </div>
-                <div className="flex justify-center items-center pt-5">
+                <div className="flex justify-around items-center pt-5">
+                    {type === "none"? <>
+                        <Button variant="Primary" 
+                            size="sm" 
+                            text="Youtube" 
+                            fullWidth="no" 
+                            onClick={() => {YoutubeClickHandler()}}/>
+                        <Button variant="Secondary" 
+                            size="sm" 
+                            text="Tweet"
+                            fullWidth="no"
+                            onClick={() => {TweetClickHandler()}}/>
+                    </>: type === "youtube"? 
+                        <Button variant="Primary"
+                            size="sm"
+                            text="Youtube"
+                            fullWidth="no"
+                            onClick={() => {YoutubeClickHandler()}}/>:
+                        <Button variant="Secondary"
+                            size="sm"
+                            text="Tweet"
+                            fullWidth="no"
+                            onClick={() => {TweetClickHandler()}}/>}
+                </div>
+                <div className="flex justify-center items-center pt-8">
                     <Button variant="Primary" size="lg" text="Submit" onClick={() => {}} fullWidth="yes"/>
                 </div>
             </div>
