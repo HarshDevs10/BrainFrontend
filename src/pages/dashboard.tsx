@@ -6,8 +6,24 @@ import { PlusIcon } from "../icons/plusIcon"
 import { ShareIcon } from "../icons/shareIcon"
 import { Sidebar } from "../components/SideBar"
 
+interface cardProps{
+    url: string
+    title: string
+    type: "youtube" | "tweet"
+}
+
 export const DashBoardPage = () => {
   const [Open, setOpen] = useState(false)
+  const [Cardsec, setCardsec] = useState<cardProps[]>([{
+    type: "tweet",
+    title: "jai ho",
+    url: "https://x.com/elonmusk/status/1972062352221864408"
+  },{
+    type: "youtube",
+    title: "jai ma kali",
+    url: "https://www.youtube.com/watch?v=FIXBYq2htLU"
+  }
+])
 
   return <div>
     <div> 
@@ -19,12 +35,7 @@ export const DashBoardPage = () => {
           <Button variant="Primary" fullWidth="no" size="lg" text="Add Content" onClick={() => {setOpen(true)}} stratIcon={<PlusIcon size="lg"/>}/>
         </div>
         <div className="columns-1 justify-center items-start lg:columns-3 sm:columns-2">
-          <Card type="tweet" title="jai ho" url="https://x.com/elonmusk/status/1972062352221864408"/>
-          <Card type="youtube" title="jai ma kali" url="https://www.youtube.com/watch?v=FIXBYq2htLU"/>
-          <Card type="tweet" title="maa ki ang" url="https://x.com/mufaddal_vohra/status/1972369693320360062"/>
-          <Card type="youtube" title="kala kaka" url="https://www.youtube.com/watch?v=GiDl3fMPjRs"/>
-          <Card type="tweet" title="papa ki pari" url="https://x.com/CryptoUsopp/status/1972308964953276692"/>
-          <Card type="youtube" title="clip" url="https://www.youtube.com/watch?v=J64ByukQOn8" />
+          {Cardsec.map((item, index) =>(<Card key={index} type={item.type} title={item.title} url={item.url}/>))}
         </div>
       </div>
     </div>

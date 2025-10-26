@@ -19,6 +19,8 @@ export const SignClickHandler = (prop: SignClickHandlerProps) => {
     axios.post( `${BACKEND_URL}${prop.URL}`, {
         userName,
         password
+    },{
+        withCredentials: true
     }).then(() => {prop.Navigate("/DashBoard")})
     .catch((e) => {prop.setErrorMes(e.response.data.err? e.response.data.err : e.response.data.message)})
 }
