@@ -1,4 +1,4 @@
-import React, { useState, type SetStateAction } from "react"
+import { useState } from "react"
 import { ShareIcon } from "../icons/shareIcon"
 import { TrashIcon } from "../icons/trashIcon"
 import { TwitterIcon } from "../icons/twitterIcon"
