@@ -19,14 +19,15 @@ export const ContentModel = (prop: OpenProps) => {
         {prop.open ? <div className="w-screen h-screen fixed bg-slate-500/70 top-0 left-0 z-10 flex justify-center items-center">
             <div className="bg-white text-blacks p-5 rounded-lg">
                 <div className="flex justify-between items-center pb-2">
-                    <span className="text-slate-700 text-xl font-semibold">Adding Content</span>
+                    <span className="text-slate-700 text-xl font-semibold underline decoration-dotted decoration-sky-500 underline-offset-2">Adding Content</span>
                     <span onClick={() => {prop.setOpen(false)}} className="cursor-pointer">
                         <CloseIcon size="lg"/>
                     </span>
                 </div>
                 <div className="flex flex-col">
-                    <InputData placeholder="type"/>
-                    <InputData placeholder="name"/>
+                    <InputData placeholder="Title"/>
+                    <InputData placeholder="URL"/>
+                    <InputData placeholder="Tag"/>
                 </div>
                 <div className="flex justify-around items-center pt-5">
                     {type === "none"? <>
