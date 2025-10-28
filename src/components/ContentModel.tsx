@@ -5,7 +5,6 @@ import { InputData } from "../utility/inputdata"
 import { useRef, useState, type ReactElement } from "react"
 import { YoutubeClickHandler } from "../utility/youtubeClickHandler"
 import { TweetClickHandler } from "../utility/tweetClickHandler"
-import { useNavigate } from "react-router"
 import type { cardProps } from "../utility/cardProps"
 import { ContentSubmitHandler } from "../utility/ContentSubmitHandler"
 
@@ -22,7 +21,6 @@ export const ContentModel = (prop: OpenProps) => {
     const TitleRef = useRef<ReactElement>(null)
     const URLRef = useRef<ReactElement>(null)
     const TagRef = useRef<ReactElement>(null)
-    const Navigate = useNavigate()
 
     const setOpen = prop.setOpen
     const setCardsec = prop.setCardsec
@@ -61,7 +59,6 @@ export const ContentModel = (prop: OpenProps) => {
                         setOpen,
                         setError: setErrorMes,
                         setCardsec,
-                        Navigate
                     })}} fullWidth="yes"/>
                 </div>
             </div>

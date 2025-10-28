@@ -1,6 +1,5 @@
 import axios from "axios";
 import type React from "react";
-import type { NavigateFunction } from "react-router";
 import { BACKEND_URL } from "../config";
 import type { cardProps } from "./cardProps";
 
@@ -12,7 +11,6 @@ interface SubmitHandlerProps {
     setOpen: React.Dispatch<React.SetStateAction<boolean>>
     setError: React.Dispatch<React.SetStateAction<string | null>>
     setCardsec: React.Dispatch<React.SetStateAction<cardProps[]>>
-    Navigate: NavigateFunction
 }
 
 export const ContentSubmitHandler = (prop: SubmitHandlerProps) => {
