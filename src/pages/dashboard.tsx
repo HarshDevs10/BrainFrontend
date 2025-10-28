@@ -31,7 +31,7 @@ useEffect(() => {
   return <div>
     <div> 
       <Sidebar/>
-      <div className="pl-5 ml-72 pr-3 bg-[#F4F4F4]">
+      <div className="pl-5 ml-72 pr-3 min-h-screen bg-[#F4F4F4]">
         <ContentModel open={Open} setOpen={setOpen} setCardsec={setCardsec}/>
         <div className="flex justify-end-safe gap-4 pt-5 pb-9">
           <Button variant="Secondary" fullWidth="no" size="lg" text="Share Brain" onClick={() => {}} stratIcon={<ShareIcon size="lg"/>}/>
