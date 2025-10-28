@@ -36,11 +36,11 @@ export const Card = (prop: cardProps) => {
             </div>
         </div>
         <div className="pt-4">
-
             {prop.type === "tweet" ? 
-            <Twitting url={prop.url}/> : 
-            <div className=""><Youtubing url={prop.url}/></div>}
-
+            <Twitting url={prop.url}/> :
+            <Youtubing url={prop.url}/> 
+            }
         </div>
     </div>
 } 
+

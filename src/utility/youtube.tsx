@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import { Iframe } from "./iframe"
 
 interface youtubeProps{
@@ -5,6 +6,17 @@ interface youtubeProps{
 }
 
 export const Youtubing = (prop: youtubeProps) => {
+    const [ready, setReady] = useState<boolean>(false)
+
+    useEffect(() => {
+        const timer = setTimeout(() => setReady(true), 2000)
+        return () => clearTimeout(timer)
+    }, [prop.url])
+
+    if(!ready){
+        return <div className="text-center">⏳ Preparing video...</div>
+    }
+
     if(prop.url.includes("embed")){
         return <iframe className="aspect-video justify-center"
             src={prop.url}
