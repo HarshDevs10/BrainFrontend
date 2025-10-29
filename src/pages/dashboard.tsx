@@ -6,26 +6,25 @@ import { PlusIcon } from "../icons/plusIcon"
 import { ShareIcon } from "../icons/shareIcon"
 import { Sidebar } from "../components/SideBar"
 import { type cardProps } from "../utility/cardProps"
+import axios from "axios"
+import { BACKEND_URL } from "../config"
 
 export const DashBoardPage = () => {
   const [Open, setOpen] = useState(false)
   const [Cardsec, setCardsec] = useState<cardProps[]>([])
 
 useEffect(() => {
-  setCardsec([
-    {
-      type: "tweet",
-      title: "jai ho",
-      url: "https://x.com/elonmusk/status/1972062352221864408",
+  axios.get(`${BACKEND_URL}/api/v1/content`, {
+    withCredentials: true
+  }).then((res) => {
+    const format = res.data.content.map((item: any) => ({
+      type: item.type,
+      title: item.title,
+      url: item.url,
       setCardsec: setCardsec
-    },
-    {
-      type: "youtube",
-      title: "jai ma kali",
-      url: "https://www.youtube.com/watch?v=FIXBYq2htLU",
-      setCardsec: setCardsec
-    }
-  ])
+    }))
+    setCardsec(format)
+  })
 }, [])
 
   return <div>
