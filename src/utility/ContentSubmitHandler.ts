@@ -11,6 +11,7 @@ interface SubmitHandlerProps {
     setOpen: React.Dispatch<React.SetStateAction<boolean>>
     setError: React.Dispatch<React.SetStateAction<string | null>>
     setCardsec: React.Dispatch<React.SetStateAction<cardProps[]>>
+    setType: React.Dispatch<React.SetStateAction<string>>
 }
 
 export const ContentSubmitHandler = (prop: SubmitHandlerProps) => {
@@ -41,6 +42,7 @@ export const ContentSubmitHandler = (prop: SubmitHandlerProps) => {
                     setCardsec: prop.setCardsec
                 }))
                 prop.setCardsec(formatted)
+                prop.setType("none")
                 prop.setOpen(false)
             }).catch((err) => {
                 prop.setError(err.response.data)

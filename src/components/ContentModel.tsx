@@ -59,6 +59,7 @@ export const ContentModel = (prop: OpenProps) => {
                         setOpen,
                         setError: setErrorMes,
                         setCardsec,
+                        setType
                     })}} fullWidth="yes"/>
                 </div>
             </div>
