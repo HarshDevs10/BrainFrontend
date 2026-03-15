@@ -3,16 +3,18 @@ import type { ReactElement } from "react"
 interface SideBarItemsProps {
     text: string
     icon: ReactElement
+    filter?: string
+    onClick?: () => void
 }
 
-export const SideBarItems = (prop: SideBarItemsProps) => {
-    return <div className="flex pl-4 pt-8 text-slate-700">
+export const SideBarItems = (props: SideBarItemsProps) => {
+    return <div className="flex pl-4 pt-8 text-slate-700" onClick={props.onClick}>
         <div className="pr-4 flex items-center cursor-pointer">
-            {prop.icon}
+            {props.icon}
         </div>
 
         <div className="text-lg cursor-pointer">
-            {prop.text}
+            {props.text}
         </div>
     </div>
 }

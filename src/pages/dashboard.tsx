@@ -12,6 +12,7 @@ import { BACKEND_URL } from "../config"
 export const DashBoardPage = () => {
   const [Open, setOpen] = useState(false)
   const [Cardsec, setCardsec] = useState<cardProps[]>([])
+  const [AllCard, setAllCard] = useState<cardProps[]>([])
 
 useEffect(() => {
   axios.get(`${BACKEND_URL}/api/v1/content`, {
@@ -24,12 +25,13 @@ useEffect(() => {
       setCardsec: setCardsec
     }))
     setCardsec(format)
+    setAllCard(format)
   })
 }, [])
 
   return <div>
     <div> 
-      <Sidebar/>
+      <Sidebar setAllCard={setAllCard} setCardsec={setCardsec}/>
       <div className="pl-5 ml-72 pr-3 min-h-screen bg-[#F4F4F4]">
         <ContentModel open={Open} setOpen={setOpen} setCardsec={setCardsec}/>
         <div className="flex justify-end-safe gap-4 pt-5 pb-9">
