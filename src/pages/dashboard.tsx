@@ -35,7 +35,7 @@ useEffect(() => {
       <div className="pl-5 ml-72 pr-3 min-h-screen bg-[#F4F4F4]">
         <ContentModel open={Open} setOpen={setOpen} setCardsec={setCardsec}/>
         <div className="flex justify-end-safe gap-4 pt-5 pb-9">
-          <Button variant="Secondary" fullWidth="no" size="lg" text="Share Brain" onClick={() => {}} stratIcon={<ShareIcon size="lg"/>}/>
+          {/*<Button variant="Secondary" fullWidth="no" size="lg" text="Share Brain" onClick={() => {}} stratIcon={<ShareIcon size="lg"/>}/>*/}
           <Button variant="Primary" fullWidth="no" size="lg" text="Add Content" onClick={() => {setOpen(true)}} stratIcon={<PlusIcon size="lg"/>}/>
         </div>
         <div className="columns-1 justify-center items-start lg:columns-3 sm:columns-2 h-full">
