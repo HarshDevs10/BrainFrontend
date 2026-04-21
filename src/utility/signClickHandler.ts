@@ -16,6 +16,8 @@ export const SignClickHandler = (prop: SignClickHandlerProps) => {
     const password = prop.passRef?.current.value
     console.log(userName)
     console.log(password)
+    console.log(BACKEND_URL)
+    console.log("ENV:", import.meta.env.VITE_BACKEND_URL);
     axios.post( `${BACKEND_URL}${prop.URL}`, {
         userName,
         password
