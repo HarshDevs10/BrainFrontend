@@ -1,1 +1,1 @@
-export const BACKEND_URL = "https://brainbackend-4qhh.onrender.com"
+export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
