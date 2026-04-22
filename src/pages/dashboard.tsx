@@ -3,7 +3,6 @@ import { Button } from "../components/Button"
 import { Card } from "../components/Card"
 import { ContentModel } from "../components/ContentModel"
 import { PlusIcon } from "../icons/plusIcon"
-import { ShareIcon } from "../icons/shareIcon"
 import { Sidebar } from "../components/SideBar"
 import { type cardProps } from "../utility/cardProps"
 import axios from "axios"
@@ -31,7 +30,7 @@ useEffect(() => {
 
   return <div>
     <div> 
-      <Sidebar setAllCard={setAllCard} setCardsec={setCardsec}/>
+      <Sidebar AllCard={AllCard} setCardsec={setCardsec}/>
       <div className="pl-5 ml-72 pr-3 min-h-screen bg-[#F4F4F4]">
         <ContentModel open={Open} setOpen={setOpen} setCardsec={setCardsec}/>
         <div className="flex justify-end-safe gap-4 pt-5 pb-9">

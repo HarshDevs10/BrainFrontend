@@ -10,7 +10,7 @@ import type { cardProps } from "../utility/cardProps"
 import { useEffect, useState } from "react"
 
 interface SideBarProps{
-    setAllCard: React.Dispatch<React.SetStateAction<cardProps[]>>
+    AllCard: cardProps[]
     setCardsec: React.Dispatch<React.SetStateAction<cardProps[]>>
 }
 
@@ -18,17 +18,13 @@ export const Sidebar = (props: SideBarProps) => {
     const [filter, setFilter] = useState<string>("none")
 
     useEffect(() => {
-        props.setAllCard((allcards) => {
-            if (filter === "none") {
-                props.setCardsec(allcards)
-            }
-            else {
-                const filtered = allcards.filter(card => card.type === filter)
-                props.setCardsec(filtered)
-            }
-            return allcards
-        })
-    }, [filter])
+    if (filter === "none") {
+        props.setCardsec(props.AllCard)
+    } else {
+        const filtered = props.AllCard.filter(card => card.type === filter)
+        props.setCardsec(filtered)
+    }
+}, [filter, props.AllCard])
 
     return <div className="h-screen bg-white shadow-lg fixed top-0 left-0 w-72 pl-8">
         <div className="text-2xl font-semibold pt-4 flex items-center">
