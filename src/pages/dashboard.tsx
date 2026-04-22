@@ -76,7 +76,7 @@ const handleSearch = () => {
       <Sidebar AllCard={AllCard} setCardsec={setCardsec}/>
       <div className="pl-5 ml-72 pr-3 min-h-screen bg-[#F4F4F4]">
         <ContentModel open={Open} setOpen={setOpen} setCardsec={setCardsec}/>
-        <div className="flex justify-end-safe gap-4 pt-5 pb-9">
+        <div className="flex justify-between items-center gap-4 pt-5 pb-9">
           <div className="flex gap-3 pt-5 items-center">
               <div className="flex gap-3 items-center">
                 <div className="relative">
