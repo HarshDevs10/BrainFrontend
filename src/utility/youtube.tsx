@@ -1,10 +1,11 @@
 import { Iframe } from "./iframe"
 
 interface youtubeProps{
-    url: string
+    url?: string
 }
 
 export const Youtubing = (prop: youtubeProps) => {
+     if (!prop.url) return null; 
 
     if(prop.url.includes("embed")){
         return <iframe className="aspect-video justify-center"

@@ -5,12 +5,14 @@ import { InputData } from "../utility/inputdata"
 import { useRef, useState } from "react"
 import { SignClickHandler } from "../utility/signClickHandler"
 
+ 
 
 export const Signin = () => {
     const UsernameRef = useRef<any>(0)
     const PasswordRef = useRef<any>(0)
     const [errorMes, setErrorMes] = useState<string | null>(null)
     const Navigate = useNavigate()
+    
 
     return <div className="w-screen h-screen bg-[#F4F4F4] flex justify-center items-center">
         <div className="bg-white rounded-md shadow w-72">
@@ -26,9 +28,14 @@ export const Signin = () => {
             <div className="text-center pt-6">
                 <InputData placeholder="UserName" ref={UsernameRef}/>
             </div>
-            <div className="text-center pt-1">
-                <InputData placeholder="Password" ref={PasswordRef}/>
-            </div>
+            
+ <div className="text-center pt-1">
+  <InputData
+    placeholder="Password"
+    ref={PasswordRef}
+    type="password"
+  />
+</div>
             <div className="text-red-800 text-xs pl-10">
                 {errorMes? `* ${errorMes}`: null}
             </div>

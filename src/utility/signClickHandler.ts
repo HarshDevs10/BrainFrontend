@@ -14,6 +14,7 @@ interface SignClickHandlerProps{
 export const SignClickHandler = (prop: SignClickHandlerProps) => {
     const userName = prop.userRef?.current.value
     const password = prop.passRef?.current.value
+    console.log("Clicked")
     console.log(userName)
     console.log(password)
     axios.post( `${BACKEND_URL}${prop.URL}`, {
