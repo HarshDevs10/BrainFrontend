@@ -76,44 +76,6 @@ const handleSearch = () => {
       <Sidebar AllCard={AllCard} setCardsec={setCardsec}/>
       <div className="pl-5 ml-72 pr-3 min-h-screen bg-[#F4F4F4]">
         <ContentModel open={Open} setOpen={setOpen} setCardsec={setCardsec}/>
-       <div className="flex gap-3 pt-5 items-center">
-  
-  <div className="relative">
-    <input
-      type="text"
-      placeholder="Search by tags (ai, tech)"
-      value={searchTags}
-      onChange={(e) => setsearchTags(e.target.value)}
-      onKeyDown={(e) => {
-    if (e.key === "Enter") {
-      handleSearch();   
-    }
-  }}
-  className="border p-2 rounded w-64 pr-10"
-/>
-    
-    {searchTags && (
-      <span
-        onClick={() => {
-          setsearchTags("");
-          setCardsec(AllCard);
-          setNoResult(false);
-        }}
-        className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer text-gray-500 hover:text-black"
-      >
-        ✕
-      </span>
-    )}
-  </div>
-
-  <button
-    onClick={handleSearch}
-    className="bg-blue-500 text-white px-4 py-2 rounded"
-  >
-    Search
-  </button>
-
-</div>
         <div className="flex justify-end-safe gap-4 pt-5 pb-9">
           <div className="flex gap-3 pt-5 items-center">
               <div className="flex gap-3 items-center">
