@@ -15,10 +15,8 @@ export const Youtubing = (prop: youtubeProps) => {
             referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
     }
     else if(prop.url.includes("=")){
-        let list = prop.url.split("=")
-        const idlist = list[list.length - 2]
-        const realId = idlist.split("&")
-        const id = realId[0]
+        let list = prop.url.split("v=")
+        const id = list[list.length - 1].split("&")[0]
 
         return <Iframe id={id}/>
     }
