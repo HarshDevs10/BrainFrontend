@@ -39,8 +39,8 @@ export const Sidebar = (props: SideBarProps) => {
             <SideBarItems text="Videos" icon={<YoutubeIcon size="lg"/>} filter={filter}
                 onClick={() => {setFilter(prev => prev === "youtube"? "none" : "youtube")}}/>
             <SideBarItems text="Docs" icon={<DocumentIcon size="lg"/>}/>
-            <SideBarItems text="Link" icon={<LinkIcon size="lg"/>}/>
-            <SideBarItems text="Tags" icon={<TagIcon size="lg"/>}/>
+            {/* <SideBarItems text="Link" icon={<LinkIcon size="lg"/>}/>
+            <SideBarItems text="Tags" icon={<TagIcon size="lg"/>}/> */}
         </div>
     </div>
 }
