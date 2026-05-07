@@ -16,7 +16,7 @@ export const Youtubing = (prop: youtubeProps) => {
     }
     else if(prop.url.includes("=")){
         let list = prop.url.split("=")
-        const idlist = list[list.length - 1]
+        const idlist = list[list.length - 2]
         const realId = idlist.split("&")
         const id = realId[0]
 
