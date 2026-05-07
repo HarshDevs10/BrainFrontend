@@ -72,17 +72,6 @@ const handleSearch = () => {
   }
 };
 
-
-
-
-
-
-
-
-
-
-
-
   return <div>
     <div> 
       <Sidebar AllCard={AllCard} setCardsec={setCardsec}/>
