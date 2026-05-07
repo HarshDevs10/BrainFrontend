@@ -16,15 +16,15 @@ export const Youtubing = (prop: youtubeProps) => {
     }
     else if(prop.url.includes("=")){
         let list = prop.url.split("=")
-        const id = list[list.length - 1]
+        const idlist = list[list.length - 1]
+        const realId = idlist.split("&")
+        const id = realId[0]
 
         return <Iframe id={id}/>
     }
     else{
         let list = prop.url.split("/")
-        const idlist = list[list.length - 1]
-        const realId = idlist.split("&")
-        const id = realId[0]
+        const id = list[list.length - 1]
 
         return <Iframe id={id}/>
     }
