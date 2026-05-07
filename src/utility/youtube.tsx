@@ -5,7 +5,7 @@ interface youtubeProps{
 }
 
 export const Youtubing = (prop: youtubeProps) => {
-     if (!prop.url) return null; 
+    if (!prop.url) return null; 
 
     if(prop.url.includes("embed")){
         return <iframe className="aspect-video justify-center"
@@ -22,7 +22,9 @@ export const Youtubing = (prop: youtubeProps) => {
     }
     else{
         let list = prop.url.split("/")
-        const id = list[list.length - 1]
+        const idlist = list[list.length - 1]
+        const realId = idlist.split("&")
+        const id = realId[0]
 
         return <Iframe id={id}/>
     }
