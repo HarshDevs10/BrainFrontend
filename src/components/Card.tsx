@@ -3,8 +3,10 @@ import { ShareIcon } from "../icons/shareIcon"
 import { TrashIcon } from "../icons/trashIcon"
 import { TwitterIcon } from "../icons/twitterIcon"
 import { YoutubeIcon } from "../icons/youtubeIcon"
+import { BrainIcon } from "../icons/brainIcon"
 import { Twitting } from "../utility/tweets"
 import { Youtubing } from "../utility/youtube"
+import { Reeling } from "../utility/reels"
 import { LinkClickHandler } from "../utility/linkClickHandler"
 import { CoppiedIcon } from "../icons/coppiedIcon"
 import { type cardProps } from "../utility/cardProps"
@@ -22,7 +24,7 @@ export const Card = (prop: cardProps) => {
         <div className="flex items-center justify-between">
             <div className="flex items-center text-md font-semibold">
                 <div className="text-gray-400 pr-3">
-                    {prop.type === "tweet"? <TwitterIcon size="md"/> : <YoutubeIcon size="md"/>}
+                    { prop.type === "tweet" ? (<TwitterIcon size="md" />) : prop.type === "reel" ? (<BrainIcon size="md" />) : (<YoutubeIcon size="md" />)}
                 </div>
                 {prop.title}
             </div>
@@ -37,8 +39,10 @@ export const Card = (prop: cardProps) => {
         </div>
         <div className="pt-4">
             {prop.type === "tweet" ? 
-            <Twitting url={prop.url}/> :
-            <Youtubing url={prop.url}/> 
+            (<Twitting url={prop.url}/>) :
+            prop.type === "reel"?
+            (<Reeling url={prop.url}/>) :
+            (<Youtubing url={prop.url}/>) 
             }
         </div>
     </div>

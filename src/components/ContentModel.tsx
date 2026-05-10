@@ -7,6 +7,7 @@ import { YoutubeClickHandler } from "../utility/youtubeClickHandler"
 import { TweetClickHandler } from "../utility/tweetClickHandler"
 import type { cardProps } from "../utility/cardProps"
 import { ContentSubmitHandler } from "../utility/ContentSubmitHandler"
+import { ReelClickHandler } from "../utility/reelClickHandler"
 
 interface OpenProps{
     open: boolean
@@ -39,13 +40,19 @@ export const ContentModel = (prop: OpenProps) => {
                     <InputData placeholder="URL" ref={URLRef}/>
                     <InputData placeholder="Tag" ref={TagRef}/>
                 </div>
-                <div className="flex justify-around items-center pt-5">
+                <div className="flex flex-wrap justify-around items-center pt-5">
                     {type === "none"? <>
                         <Button variant="Primary" size="md" text="Youtube" fullWidth="no" onClick={() => {YoutubeClickHandler({type, setType})}}/>
-                        <Button variant="Secondary" size="md" text="Tweet"fullWidth="no"onClick={() => {TweetClickHandler({type, setType})}}/>
+                        <Button variant="Secondary" size="md" text="Tweet" fullWidth="no"onClick={() => {TweetClickHandler({type, setType})}}/>
+                        <div className="w-full flex justify-center pt-2">
+                            <Button variant="Primary" size="md" text="Reels" fullWidth="no" onClick={() => ReelClickHandler({type, setType})}/>
+                        </div>
                     </>: type === "youtube"? 
                         <Button variant="Primary" size="md" text="Youtube" fullWidth="no" onClick={() => {YoutubeClickHandler({type, setType})}}/>:
-                        <Button variant="Secondary" size="md" text="Tweet" fullWidth="no" onClick={() => {TweetClickHandler({type, setType})}}/>}
+                        type === "tweet"?
+                        <Button variant="Secondary" size="md" text="Tweet" fullWidth="no" onClick={() => {TweetClickHandler({type, setType})}}/>:
+                        <Button variant="Primary" size="md" text="Reels" fullWidth="no" onClick={() => ReelClickHandler({type, setType})}/>
+                    }
                 </div>
             <div className="text-red-800 text-xs pl-10">
                 {errorMes? `* ${errorMes}`: null}

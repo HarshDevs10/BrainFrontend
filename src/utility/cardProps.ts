@@ -1,6 +1,6 @@
 export interface cardProps{
     url: string
     title: string
-    type: "youtube" | "tweet"
+    type: "youtube" | "tweet" | "reel"
     setCardsec: React.Dispatch<React.SetStateAction<cardProps[]>>
 }
