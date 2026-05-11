@@ -1,6 +1,5 @@
 import type React from "react"
 import { BrainIcon } from "../icons/brainIcon"
-import { DocumentIcon } from "../icons/documentIcon"
 // import { LinkIcon } from "../icons/linkIcon"
 // import { TagIcon } from "../icons/tagIcon"
 import { TwitterIcon } from "../icons/twitterIcon"
@@ -8,6 +7,7 @@ import { YoutubeIcon } from "../icons/youtubeIcon"
 import { SideBarItems } from "../utility/sidebarItem"
 import type { cardProps } from "../utility/cardProps"
 import { useEffect, useState } from "react"
+import { InstagramIcon } from "../icons/instagramIcon"
 
 interface SideBarProps{
     AllCard: cardProps[]
@@ -38,7 +38,8 @@ export const Sidebar = (props: SideBarProps) => {
                 onClick={() => {setFilter(prev => prev === "tweet"? "none" : "tweet")}}/>
             <SideBarItems text="Videos" icon={<YoutubeIcon size="lg"/>} filter={filter}
                 onClick={() => {setFilter(prev => prev === "youtube"? "none" : "youtube")}}/>
-            <SideBarItems text="Docs" icon={<DocumentIcon size="lg"/>}/>
+            <SideBarItems text="Docs" icon={<InstagramIcon size="lg"/>} filter={filter}
+                onClick={() => {setFilter(prev => prev === "reel"? "none" : "reel")}}/>
             {/* <SideBarItems text="Link" icon={<LinkIcon size="lg"/>}/>
             <SideBarItems text="Tags" icon={<TagIcon size="lg"/>}/> */}
         </div>
